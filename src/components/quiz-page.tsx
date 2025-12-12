@@ -33,7 +33,7 @@ export default function FintechQuizGame() {
                             <br />
                         </h1>
 
-                        <p className="text-lg text-foreground/70 mb-8 max-w-xl leading-relaxed">Learn how we measure your M-pesa Familiarity by taking our test.</p>
+                        <p className="text-lg text-foreground/70 mb-8 max-w-xl leading-relaxed">Learn how antideath locates your car exactly at the point of an accident.</p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Button
                                 size="lg"
