@@ -28,14 +28,28 @@ export function Map({ currentPosition, coordinates }: MapProps) {
         })
     }, [])
 
-    // Get initial position
     useEffect(() => {
+        // If we have saved coordinates, use the first one as initial position
+        if (coordinates.length > 0 && !currentPosition) {
+            setInitialPosition({
+                latitude: coordinates[0][1],
+                longitude: coordinates[0][0],
+                accuracy: 0,
+                altitude: null,
+                altitudeAccuracy: null,
+                heading: null,
+                speed: null,
+            })
+            return
+        }
+
+        // Otherwise, get current location for live tracking
         if (!navigator.geolocation || initialPosition) return
 
         navigator.geolocation.getCurrentPosition((position) => {
             setInitialPosition(position.coords)
         })
-    }, [initialPosition])
+    }, [initialPosition, coordinates, currentPosition])
 
     // Initialize map
     useEffect(() => {
@@ -80,7 +94,7 @@ export function Map({ currentPosition, coordinates }: MapProps) {
                 },
             })
 
-            console.log("[Map] Map loaded and route layer added")
+            console.log("[v0] Map loaded and route layer added")
         })
 
         return () => {
@@ -95,7 +109,7 @@ export function Map({ currentPosition, coordinates }: MapProps) {
 
         const { longitude, latitude } = currentPosition
 
-        console.log("[Map] Updating marker position:", { longitude, latitude })
+        console.log("[v0] Updating marker position:", { longitude, latitude })
 
         // Create or update marker
         if (!marker.current) {
@@ -103,10 +117,10 @@ export function Map({ currentPosition, coordinates }: MapProps) {
             el.className = "w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-lg"
 
             marker.current = new mapboxgl.Marker({ element: el }).setLngLat([longitude, latitude]).addTo(map.current)
-            console.log("[Map] Marker created")
+            console.log("[v0] Marker created")
         } else {
             marker.current.setLngLat([longitude, latitude])
-            console.log("[Map] Marker updated")
+            console.log("[v0] Marker updated")
         }
 
         // Center map on current position
@@ -116,7 +130,6 @@ export function Map({ currentPosition, coordinates }: MapProps) {
         })
     }, [currentPosition, mapLoaded])
 
-    // Update route polyline
     useEffect(() => {
         if (!map.current || !mapLoaded) return
 
@@ -131,9 +144,23 @@ export function Map({ currentPosition, coordinates }: MapProps) {
                     coordinates: coordinates,
                 },
             })
-            console.log("[Map] Route updated with", coordinates.length, "points")
+            console.log("[v0] Route updated with", coordinates.length, "points")
+
+            // If not in live tracking mode (no currentPosition), fit map to show entire route
+            if (!currentPosition && coordinates.length > 1) {
+                const bounds = coordinates.reduce(
+                    (bounds, coord) => bounds.extend(coord as [number, number]),
+                    new mapboxgl.LngLatBounds(coordinates[0], coordinates[0]),
+                )
+
+                map.current.fitBounds(bounds, {
+                    padding: 50,
+                    duration: 1000,
+                })
+                console.log("[v0] Map fitted to route bounds")
+            }
         }
-    }, [coordinates, mapLoaded])
+    }, [coordinates, mapLoaded, currentPosition])
 
     return (
         <div className="relative h-full w-full">
