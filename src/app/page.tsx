@@ -8,7 +8,7 @@ export default function Home() {
         <main className="w-full bg-background">
             {/* Hero Section with Video */}
             <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 -z-10">
+                <div className="absolute inset-0 ">
                     <video
                         autoPlay
                         muted
