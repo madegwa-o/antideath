@@ -1,12 +1,10 @@
 "use client"
 
 import type React from "react"
-
 import { signIn, useSession } from "next-auth/react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
@@ -76,47 +74,61 @@ export default function SignInPage() {
 
     if (!mounted || status === "loading") {
         return (
-            <div className="min-h-screen flex items-center justify-center">
-                <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            <div className="min-h-screen flex items-center justify-center bg-white text-[#0a0a0a]">
+                <Loader2 className="h-8 w-8 animate-spin text-[#0a0a0a]" />
             </div>
         )
     }
 
     if (session) {
         return (
-            <div className="min-h-screen flex items-center justify-center">
+            <div className="min-h-screen flex items-center justify-center bg-white text-[#0a0a0a]">
                 <div className="text-center">
-                    <Loader2 className="h-8 w-8 animate-spin text-primary mx-auto mb-4" />
-                    <p className="text-muted-foreground">Redirecting...</p>
+                    <Loader2 className="h-8 w-8 animate-spin text-[#0a0a0a] mx-auto mb-4" />
+                    <p className="text-neutral-500">Redirecting...</p>
                 </div>
             </div>
         )
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center px-4 py-12">
-            <Card className="w-full max-w-md">
-                <CardHeader className="space-y-1">
-                    <CardTitle className="text-2xl font-bold text-center">Welcome to Anti-Death</CardTitle>
-                    <CardDescription className="text-center">Sign in to access your Anti-Death Account</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
+        <main className="min-h-screen w-full bg-white text-[#0a0a0a] font-sans flex items-center justify-center px-8 py-12">
+            <div className="w-full max-w-md">
+                {/* Header */}
+                <div className="mb-12 text-center">
+                    <p className="text-xs tracking-[0.25em] uppercase text-neutral-400 mb-3 font-medium">
+                        Join the Movement
+                    </p>
+                    <h1 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight text-[#0a0a0a] mb-4">
+                        Save Lives.<br />Together.
+                    </h1>
+                    <p className="text-lg text-neutral-500 leading-relaxed max-w-sm mx-auto">
+                        Access your AntiDeath dashboard to track emergency detection, manage hardware, and monitor road safety impact.
+                    </p>
+                </div>
+
+                {/* Content */}
+                <div className="space-y-6">
                     {error && (
-                        <Alert variant="destructive">
+                        <Alert variant="destructive" className="bg-red-50 border-red-200">
                             <AlertCircle className="h-4 w-4" />
-                            <AlertDescription>{error}</AlertDescription>
+                            <AlertDescription className="text-red-800">{error}</AlertDescription>
                         </Alert>
                     )}
 
-                    <Button onClick={handleGoogleSignIn} disabled={isLoading} className="w-full" size="lg">
+                    <button
+                        onClick={handleGoogleSignIn}
+                        disabled={isLoading}
+                        className="w-full h-12 px-8 border border-neutral-200 text-[#0a0a0a] text-sm font-semibold rounded-full hover:border-neutral-300 hover:bg-neutral-50 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    >
                         {isLoading ? (
                             <>
-                                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                <Loader2 className="h-4 w-4 animate-spin" />
                                 Signing in...
                             </>
                         ) : (
                             <>
-                                <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
+                                <svg className="h-4 w-4" viewBox="0 0 24 24">
                                     <path
                                         fill="currentColor"
                                         d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -137,20 +149,22 @@ export default function SignInPage() {
                                 Continue with Google
                             </>
                         )}
-                    </Button>
+                    </button>
 
                     <div className="relative">
                         <div className="absolute inset-0 flex items-center">
-                            <Separator />
+                            <Separator className="bg-neutral-100" />
                         </div>
                         <div className="relative flex justify-center text-xs uppercase">
-                            <span className="bg-card px-2 text-muted-foreground">Or continue with email</span>
+                            <span className="bg-white px-3 text-neutral-400 font-medium">Or continue with email</span>
                         </div>
                     </div>
 
                     <form onSubmit={handleCredentialsSignIn} className="space-y-4">
                         <div className="space-y-2">
-                            <Label htmlFor="email">Email</Label>
+                            <Label htmlFor="email" className="text-sm font-medium text-[#0a0a0a]">
+                                Email Address
+                            </Label>
                             <Input
                                 id="email"
                                 type="email"
@@ -159,10 +173,13 @@ export default function SignInPage() {
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
                                 disabled={isCredentialsLoading}
+                                className="h-11 border border-neutral-200 rounded-lg focus:border-neutral-400 focus:ring-0"
                             />
                         </div>
                         <div className="space-y-2">
-                            <Label htmlFor="password">Password</Label>
+                            <Label htmlFor="password" className="text-sm font-medium text-[#0a0a0a]">
+                                Password
+                            </Label>
                             <Input
                                 id="password"
                                 type="password"
@@ -171,25 +188,30 @@ export default function SignInPage() {
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
                                 disabled={isCredentialsLoading}
+                                className="h-11 border border-neutral-200 rounded-lg focus:border-neutral-400 focus:ring-0"
                             />
                         </div>
-                        <Button type="submit" disabled={isCredentialsLoading} className="w-full bg-transparent" variant="outline">
+                        <button
+                            type="submit"
+                            disabled={isCredentialsLoading}
+                            className="w-full h-12 px-8 bg-[#0a0a0a] text-white text-sm font-semibold rounded-full hover:bg-neutral-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-6"
+                        >
                             {isCredentialsLoading ? (
                                 <>
-                                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                    <Loader2 className="h-4 w-4 animate-spin" />
                                     Signing in...
                                 </>
                             ) : (
                                 "Sign in with Email"
                             )}
-                        </Button>
+                        </button>
                     </form>
 
-                    <p className="text-center text-muted-foreground text-sm">
-                        New users can set up a password in account settings after signing in with Google.
+                    <p className="text-center text-neutral-400 text-sm leading-relaxed">
+                        New to AntiDeath? Set up your account and receive hardware installation instructions.
                     </p>
-                </CardContent>
-            </Card>
-        </div>
+                </div>
+            </div>
+        </main>
     )
 }
