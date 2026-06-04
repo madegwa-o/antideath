@@ -43,8 +43,8 @@ export function Header() {
         { label: "Home", href: "/" },
         { label: "Map", href: "/map" },
         { label: "Journeys", href: "/journeys" },
-        { label: "Pricing", href: "/pricing" },
-        { label: "Docs", href: "/docs" },
+        { label: "Research", href: "/research" },
+        { label: "Our Market", href: "/our-market" },
         { label: "My Account", href: "/account" },
     ]
 

@@ -7,8 +7,8 @@ const PUBLIC_ROUTES = [
     "/",
     "/api/images/**",
     "/signin",
-    "/pricing",
-    "/docs",
+    "/research",
+    "/our-market",
     "/api/payments/direct/callback",
     // Add any other public routes here
 ];
