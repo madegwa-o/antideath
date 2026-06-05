@@ -26,33 +26,33 @@ export default function ResearchPage() {
             <section className="px-8 md:px-16 lg:px-24 py-28 md:py-40 bg-[#f7f7f5] border-b border-neutral-100">
                 <div className="max-w-6xl mx-auto">
                     <p className="text-xs tracking-[0.25em] uppercase text-neutral-400 mb-5 font-medium">
-                        Key Findings
+                        Kenya's Road Safety Crisis
                     </p>
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#0a0a0a] mb-16 max-w-lg">
-                        Why response time matters.
+                        The data that drives our mission.
                     </h2>
 
                     <div className="grid md:grid-cols-2 gap-8">
                         {[
                             {
-                                stat: "90%",
-                                title: "Survival Rate Increase",
-                                description: "Patients who receive pre-hospital care within 2 seconds of collapse see a 90% increase in survival rates compared to 15+ minute delays.",
-                            },
-                            {
-                                stat: "<2s",
-                                title: "Our Detection Target",
-                                description: "Our Phase 1 system detects collision impact and alerts responders faster than a driver could physically call 911.",
+                                stat: "4,634",
+                                title: "Reported Road Deaths (2023)",
+                                description: "NTSA data. Actual estimated deaths: ~12,000. The gap reveals a critical data collection challenge that AntiDeath's real-time detection system helps solve.",
                             },
                             {
                                 stat: "45%",
-                                title: "Rural Response Gap",
-                                description: "In remote areas, ambulances take 45+ minutes to arrive. Early detection and alert systems bridge this critical gap.",
+                                title: "Pedestrian Fatality Rate",
+                                description: "Pedestrians are Kenya's highest-risk group. Motorcyclists (boda bodas) are second. Our system detects collisions involving all road users.",
                             },
                             {
-                                stat: "1.2M",
-                                title: "Annual Road Deaths",
-                                description: "Road injuries are the leading cause of death for ages 5-29. Prevention starts with response infrastructure.",
+                                stat: "60 min",
+                                title: "Average Rural Response Time",
+                                description: "In rural areas, emergency services take 45–60+ minutes to arrive. Our <2 second detection enables immediate dispatch coordination.",
+                            },
+                            {
+                                stat: "5%",
+                                title: "Economic Cost",
+                                description: "Road crashes cost Kenya approximately 5% of GDP annually. That's billions lost to preventable deaths, injuries, and economic disruption.",
                             },
                         ].map(({ stat, title, description }, i) => (
                             <div
@@ -64,6 +64,59 @@ export default function ResearchPage() {
                                 <p className="text-neutral-500 leading-relaxed">{description}</p>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ── NRSAP ALIGNMENT ── */}
+            <section className="px-8 md:px-16 lg:px-24 py-28 md:py-40 border-b border-neutral-100">
+                <div className="max-w-6xl mx-auto">
+                    <p className="text-xs tracking-[0.25em] uppercase text-neutral-400 mb-5 font-medium">
+                        Supporting Kenya's 8 Strategic Priorities
+                    </p>
+                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#0a0a0a] mb-16 max-w-lg">
+                        Aligned with NRSAP 2024–2028.
+                    </h2>
+
+                    <div className="grid md:grid-cols-2 gap-6 mb-8">
+                        {[
+                            {
+                                priority: "Post-Crash Response",
+                                how: "Our emergency detection system provides sub-2-second alerts to dispatch centers, eliminating delays in critical response windows.",
+                            },
+                            {
+                                priority: "Data & Monitoring",
+                                how: "Real-time crash detection builds the national database NRSAP envisions. Geolocation and severity data inform ongoing interventions.",
+                            },
+                            {
+                                priority: "Risk Targeting",
+                                how: "We deploy to NRSAP's identified high-risk corridors and urban hotspots, concentrating resources where fatalities are highest.",
+                            },
+                            {
+                                priority: "Enforcement Support",
+                                how: "Behavior change campaigns and data insights support driver training, licensing, and speeding/drunk driving enforcement.",
+                            },
+                            {
+                                priority: "Infrastructure Safety",
+                                how: "Crash hotspot data informs Safe System road design recommendations in partnership with county governments.",
+                            },
+                            {
+                                priority: "Funding Efficiency",
+                                how: "Our open-hardware model reduces costs, enabling governments to allocate road safety budgets further under NRSAP funding priorities.",
+                            },
+                        ].map(({ priority, how }, i) => (
+                            <div key={i} className="border border-neutral-200 rounded-2xl p-6 md:p-8 bg-white hover:border-neutral-300 transition-colors">
+                                <h3 className="text-lg font-bold text-[#0a0a0a] mb-3">{priority}</h3>
+                                <p className="text-neutral-500 leading-relaxed text-sm">{how}</p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="bg-[#f7f7f5] border border-neutral-200 rounded-2xl p-8 md:p-10">
+                        <p className="text-xs tracking-[0.2em] uppercase text-neutral-400 font-medium mb-3">The Vision</p>
+                        <p className="text-lg text-[#0a0a0a] leading-relaxed">
+                            Kenya's vision is "<span className="font-semibold">safe roads for all users</span>" — eliminating fatal and serious injuries. AntiDeath's technology is purpose-built to be a key enabler of this vision, working in concert with the 8 national strategic priorities that guide Kenya's road safety transformation through 2030.
+                        </p>
                     </div>
                 </div>
             </section>

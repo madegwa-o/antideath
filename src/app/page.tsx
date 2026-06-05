@@ -202,26 +202,79 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            {/* ── COVERAGE ── */}
+            {/* ── KENYA'S VISION ── */}
+            <section className="px-8 md:px-16 lg:px-24 py-28 md:py-40 border-b border-neutral-100">
+                <div className="max-w-6xl mx-auto">
+                    <p className="text-xs tracking-[0.25em] uppercase text-neutral-400 mb-5 font-medium">Aligned With Kenya's Vision</p>
+                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#0a0a0a] mb-6">
+                        "Safe roads for all users."
+                    </h2>
+                    <p className="text-lg text-neutral-500 mb-12 leading-relaxed max-w-3xl">
+                        Kenya's National Road Safety Action Plan 2024–2028 sets a bold target: <span className="font-semibold text-[#0a0a0a]">50% reduction in road fatalities by 2030</span>. AntiDeath's emergency detection technology directly supports all 8 national strategic priorities.
+                    </p>
+
+                    <div className="grid md:grid-cols-2 gap-8 mb-12">
+                        <div className="border border-neutral-200 rounded-2xl p-8 bg-white hover:border-neutral-300 transition-colors">
+                            <p className="text-xs tracking-[0.2em] uppercase text-neutral-400 font-medium mb-3">The Challenge</p>
+                            <div className="space-y-4">
+                                <div>
+                                    <p className="text-2xl font-bold text-[#0a0a0a]">4,634</p>
+                                    <p className="text-sm text-neutral-500">Annual road fatalities (2023 NTSA data)</p>
+                                </div>
+                                <div>
+                                    <p className="text-2xl font-bold text-[#0a0a0a]">~12,000</p>
+                                    <p className="text-sm text-neutral-500">Estimated actual deaths (accounting for underreporting)</p>
+                                </div>
+                                <div>
+                                    <p className="text-2xl font-bold text-[#0a0a0a]">5% GDP</p>
+                                    <p className="text-sm text-neutral-500">Annual cost of road crashes to Kenya's economy</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="border border-neutral-200 rounded-2xl p-8 bg-[#f7f7f5] hover:border-neutral-300 transition-colors">
+                            <p className="text-xs tracking-[0.2em] uppercase text-neutral-400 font-medium mb-3">Our Role in Kenya's NRSAP</p>
+                            <ul className="space-y-3">
+                                <li className="flex items-start gap-3">
+                                    <span className="text-emerald-600 font-bold mt-0.5">✓</span>
+                                    <span className="text-sm text-[#0a0a0a]"><span className="font-semibold">Post-Crash Response</span> — Faster emergency detection & dispatch</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="text-emerald-600 font-bold mt-0.5">✓</span>
+                                    <span className="text-sm text-[#0a0a0a]"><span className="font-semibold">Data & Monitoring</span> — Real-time crash hotspot mapping</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="text-emerald-600 font-bold mt-0.5">✓</span>
+                                    <span className="text-sm text-[#0a0a0a]"><span className="font-semibold">Risk Targeting</span> — Predictive deployment to high-risk corridors</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="text-emerald-600 font-bold mt-0.5">✓</span>
+                                    <span className="text-sm text-[#0a0a0a]"><span className="font-semibold">Funding Efficiency</span> — Open hardware, low-cost deployment</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ── HIGH-RISK CORRIDORS ── */}
             <section className="px-8 md:px-16 lg:px-24 py-28 md:py-40 bg-[#f7f7f5] border-b border-neutral-100">
                 <div className="max-w-6xl mx-auto">
-                    <p className="text-xs tracking-[0.25em] uppercase text-neutral-400 mb-5 font-medium">Coverage</p>
+                    <p className="text-xs tracking-[0.25em] uppercase text-neutral-400 mb-5 font-medium">Priority Deployment</p>
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#0a0a0a] mb-4">
-                        Launching in Kenya first.
+                        Launching across Kenya's high-risk corridors.
                     </h2>
                     <p className="text-neutral-400 mb-16 max-w-lg">
-                        We&#39;re starting where it matters most — Kenya&#39;s highest-risk corridors.
-                        Phase 1 hardware pilots are planned for the roads with the highest accident
-                        and fatality rates.
+                        NRSAP identifies high-risk roads where measurable impact can be achieved. We&#39;re deploying Phase 1 detection hardware to Kenya's deadliest routes first.
                     </p>
 
                     <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
                         {[
-                            { road: "Nairobi–Nakuru Highway", note: "A104 — highest fatality rate" },
-                            { road: "Nairobi–Mombasa Road", note: "A109 — long-haul truck corridor" },
-                            { road: "Nairobi–Thika Superhighway", note: "A2 — high urban volume" },
-                            { road: "Nakuru–Eldoret Road", note: "A104 — frequent head-ons" },
-                            { road: "Kisumu–Kakamega Road", note: "A1 — western region hub" },
+                            { road: "Nairobi–Nakuru Highway", note: "A104 — highest fatality corridor" },
+                            { road: "Nairobi–Mombasa Road", note: "A109 — long-haul truck crashes" },
+                            { road: "Nairobi–Thika Superhighway", note: "A2 — high urban volume collisions" },
+                            { road: "Nakuru–Eldoret Road", note: "A104 — frequent head-on collisions" },
+                            { road: "Kisumu–Kakamega Road", note: "A1 — western region deaths" },
                             { road: "Mombasa–Malindi Road", note: "B8 — coastal fatality hotspot" },
                         ].map(({ road, note }) => (
                             <div
@@ -235,7 +288,7 @@ export default function Home() {
                     </div>
 
                     <p className="text-neutral-400 text-sm mt-8">
-                        Partnering with NTSA and county governments for pilot deployment in 2025.
+                        Deploying in partnership with NTSA, county governments, and Kenya Road Safety Authority to support the National Road Safety Action Plan 2024–2028.
                     </p>
                 </div>
             </section>

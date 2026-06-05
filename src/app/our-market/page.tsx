@@ -14,10 +14,10 @@ export default function OurMarketPage() {
                         Market Opportunity
                     </p>
                     <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#0a0a0a] leading-[1.05] tracking-tight mb-6">
-                        A $40B market<br />waiting to be saved.
+                        Kenya to the world.<br />A proven model.
                     </h1>
                     <p className="text-lg md:text-xl text-neutral-500 mb-8 leading-relaxed max-w-2xl">
-                        The global road safety technology market is fragmented and expensive. We're building the affordable, open platform that reaches everyone — especially those in underserved regions where accidents claim the most lives.
+                        We're piloting AntiDeath in Kenya — the world's most challenging road safety environment. Success here becomes our blueprint for emerging markets across Africa, Asia, and Latin America. Backed by NRSAP 2024–2028 and NTSA partnerships, we're not just solving a market problem. We're enabling a nation's vision.
                     </p>
                 </div>
             </section>
@@ -70,44 +70,59 @@ export default function OurMarketPage() {
                         Launch Markets
                     </p>
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#0a0a0a] mb-16 max-w-lg">
-                        Geographic expansion strategy.
+                        Kenya first. Then the world.
                     </h2>
 
                     <div className="space-y-0 divide-y divide-neutral-100">
                         {[
                             {
+                                region: "Kenya (Flagship)",
+                                countries: "Nairobi, Kiambu, Uasin Gishu, Mombasa Counties",
+                                drivers: "4,634+ annual deaths, government NRSAP support, NTSA partnership ready, high-risk corridor map available",
+                                timeline: "Phase 1: 2025 Pilots",
+                                opportunity: "$450M regional market opportunity",
+                                highlight: true,
+                            },
+                            {
                                 region: "East Africa",
-                                countries: "Kenya, Uganda, Tanzania",
-                                drivers: "45,000+ annual road deaths, rapid motorization, government support",
-                                timeline: "Phase 1: 2025",
-                                opportunity: "$2.8B regional market by 2030",
+                                countries: "Uganda, Tanzania, Rwanda",
+                                drivers: "45,000+ annual road deaths, rapid motorization, Kenya success as model",
+                                timeline: "Phase 2: 2026",
+                                opportunity: "$2.4B regional market by 2030",
+                                highlight: false,
                             },
                             {
                                 region: "South Asia",
                                 countries: "India, Bangladesh, Pakistan",
                                 drivers: "350,000+ annual deaths, highest crash rate globally, 40M+ new vehicles/year",
-                                timeline: "Phase 2: 2026",
+                                timeline: "Phase 3: 2027",
                                 opportunity: "$18B+ market opportunity",
+                                highlight: false,
                             },
                             {
                                 region: "Southeast Asia",
                                 countries: "Indonesia, Vietnam, Thailand",
                                 drivers: "180,000+ annual deaths, motorcycle-dominant, growing infrastructure",
-                                timeline: "Phase 3: 2027",
+                                timeline: "Phase 4: 2027-2028",
                                 opportunity: "$8.5B potential",
+                                highlight: false,
                             },
                             {
                                 region: "Latin America",
                                 countries: "Brazil, Mexico, Colombia",
                                 drivers: "130,000+ annual deaths, established logistics, economic growth",
-                                timeline: "Phase 4: 2028",
+                                timeline: "Phase 5: 2028",
                                 opportunity: "$6.2B addressable market",
+                                highlight: false,
                             },
-                        ].map(({ region, countries, drivers, timeline, opportunity }, i) => (
-                            <div key={i} className="py-10 group">
+                        ].map(({ region, countries, drivers, timeline, opportunity, highlight }, i) => (
+                            <div key={i} className={`py-10 group ${highlight ? "bg-emerald-50 px-8 -mx-8 border-b border-emerald-200" : ""}`}>
                                 <div className="grid md:grid-cols-2 gap-6 md:gap-12">
                                     <div>
-                                        <h3 className="text-2xl font-bold text-[#0a0a0a] mb-2">{region}</h3>
+                                        <div className="flex items-center gap-3 mb-2">
+                                            <h3 className="text-2xl font-bold text-[#0a0a0a]">{region}</h3>
+                                            {highlight && <span className="bg-emerald-600 text-white text-xs px-3 py-1 rounded-full font-medium">Strategic Focus</span>}
+                                        </div>
                                         <p className="text-sm text-neutral-400 mb-4">{countries}</p>
                                         <p className="text-neutral-500 leading-relaxed mb-4">{drivers}</p>
                                         <div className="flex items-center gap-2">
@@ -115,13 +130,71 @@ export default function OurMarketPage() {
                                             <span className="text-sm font-semibold text-[#0a0a0a]">{timeline}</span>
                                         </div>
                                     </div>
-                                    <div className="bg-[#f7f7f5] rounded-2xl p-6 border border-neutral-100">
+                                    <div className={`${highlight ? "bg-white border-emerald-200" : "bg-[#f7f7f5] border-neutral-100"} rounded-2xl p-6 border`}>
                                         <p className="text-xs tracking-[0.2em] uppercase text-neutral-400 font-medium mb-2">Market Opportunity</p>
                                         <p className="text-3xl font-bold text-[#0a0a0a]">{opportunity}</p>
                                     </div>
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ── KENYA ADVANTAGE ── */}
+            <section className="px-8 md:px-16 lg:px-24 py-28 md:py-40 border-b border-neutral-100">
+                <div className="max-w-6xl mx-auto">
+                    <p className="text-xs tracking-[0.25em] uppercase text-neutral-400 mb-5 font-medium">
+                        Strategic Alignment
+                    </p>
+                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#0a0a0a] mb-16 max-w-lg">
+                        Why Kenya is our flagship launch.
+                    </h2>
+
+                    <div className="grid md:grid-cols-2 gap-8">
+                        <div className="border border-neutral-200 rounded-2xl p-8 md:p-10 bg-white hover:border-neutral-300 transition-colors">
+                            <h3 className="text-lg font-bold text-[#0a0a0a] mb-4">Government Readiness</h3>
+                            <ul className="space-y-3">
+                                <li className="flex items-start gap-3">
+                                    <span className="text-emerald-600 font-bold mt-0.5">✓</span>
+                                    <span className="text-sm text-[#0a0a0a]">NRSAP 2024–2028 aligned with our tech approach</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="text-emerald-600 font-bold mt-0.5">✓</span>
+                                    <span className="text-sm text-[#0a0a0a]">NTSA procurement-ready framework</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="text-emerald-600 font-bold mt-0.5">✓</span>
+                                    <span className="text-sm text-[#0a0a0a]">County partnerships for pilot deployment</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="text-emerald-600 font-bold mt-0.5">✓</span>
+                                    <span className="text-sm text-[#0a0a0a]">High-risk corridor data already mapped</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className="border border-neutral-200 rounded-2xl p-8 md:p-10 bg-[#f7f7f5] hover:border-neutral-300 transition-colors">
+                            <h3 className="text-lg font-bold text-[#0a0a0a] mb-4">Proven Demand Indicators</h3>
+                            <ul className="space-y-3">
+                                <li className="flex items-start gap-3">
+                                    <span className="text-emerald-600 font-bold mt-0.5">✓</span>
+                                    <span className="text-sm text-[#0a0a0a]">Urgent crisis: 4,600+ annual deaths (rising demand)</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="text-emerald-600 font-bold mt-0.5">✓</span>
+                                    <span className="text-sm text-[#0a0a0a]">Insurance & fleet operators seeking solutions</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="text-emerald-600 font-bold mt-0.5">✓</span>
+                                    <span className="text-sm text-[#0a0a0a]">Rapid vehicle growth (motorization trend)</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="text-emerald-600 font-bold mt-0.5">✓</span>
+                                    <span className="text-sm text-[#0a0a0a]">Tech ecosystem (Nairobi hub, local talent)</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
