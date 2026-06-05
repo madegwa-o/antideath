@@ -10,6 +10,8 @@ const PUBLIC_ROUTES = [
     "/research",
     "/our-market",
     "/api/payments/direct/callback",
+    "/NationalRoadSafetyActionPlan2024-2028.pdf.pdf",
+    "/National-Transport-Safety-Authority-2022-2023.pdf"
     // Add any other public routes here
 ];
 
