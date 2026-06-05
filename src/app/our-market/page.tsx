@@ -17,7 +17,7 @@ export default function OurMarketPage() {
                         A $40B market<br />waiting to be saved.
                     </h1>
                     <p className="text-lg md:text-xl text-neutral-500 mb-8 leading-relaxed max-w-2xl">
-                        The global road safety technology market is fragmented and expensive. We're building the affordable, open platform that reaches everyone — especially those in underserved regions where accidents claim the most lives.
+                        The global road safety technology market is fragmented and expensive. We&#39;re building the affordable, open platform that reaches everyone — especially those in underserved regions where accidents claim the most lives.
                     </p>
                 </div>
             </section>
